@@ -1,0 +1,44 @@
+.tile {
+  display: flex;
+  padding: 1rem;
+}
+
+.tile-container {
+  border: 1px solid black;
+  border-radius: 25px;
+  background-color: snow;
+}
+
+.tile a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.dog-details {
+  width: 50%;
+  display: block;
+}
+
+.tile img {
+  height: 10rem;
+  width: auto;
+}
+
+.dog-img-container {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+}
+
+.favorite-dog-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  img {
+    height: 2rem;
+    width: auto;
+  }
+}

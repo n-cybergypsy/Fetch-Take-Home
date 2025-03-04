@@ -1,0 +1,27 @@
+.search-section {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.search-input {
+  border-radius: 15px;
+  border-width: 0.1rem;
+  padding: 0.25 1rem;
+  line-height: 2rem;
+}
+
+.filter-sort {
+  align-items: center;
+  display: flex;
+}
+
+.filter-sort select {
+  cursor: pointer;
+  background-color: none;
+  margin: 0 0.5rem;
+  border-radius: 15px;
+  border-width: 0.1rem;
+  padding: 0.25 1rem;
+  height: 2rem;
+}
