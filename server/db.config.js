@@ -1,9 +1,11 @@
 const Pool = require("pg").Pool;
 const url = require('url')
+const dotenv = require("dotenv")
+dotenv.config()
 
 
 if (process.env.DB_URL){
-    const params = url.parse(process.env.DATABASE_URL);
+    const params = url.parse(process.env.DB_URL);
     const auth = params.auth.split(':');
 
     const pool = new Pool({
