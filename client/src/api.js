@@ -144,38 +144,74 @@ export async function getNearbyLocations(city){
     return response
 }
 
-export async function getAllDogIds(){
-    const response = fetch(fetchURL + "/dogs/search", {
+//Gets Ids of all dogs without any filtering
+export async function getAllDogIds(order){
+    const response = fetch(fetchURL + "/dogs/search?sort=breed:"+order, {
         method: "GET",
         credentials: "include",
     })
     return response
 }
 
-export async function getDogIdsByCriteria(criteria){
-    if (criteria.type == "breeds") {
-        const response = fetch(
-            fetchURL +
-            "/dogs/search?" +
-            new URLSearchParams({
-                breeds: criteria.res,
-            }).toString(),
-            {
+//Gets Ids of dogs that fit filter criteria
+export async function getDogIdsByCriteria(breedCriteria, searchCriteria, order){
+    // if (criteria.type == "breeds") {
+    //     const response = fetch(
+    //         fetchURL +
+    //         "/dogs/search?" +
+    //         new URLSearchParams({
+    //             breeds: criteria.res,
+    //         }).toString(),
+    //         {
+    //         method: "GET",
+    //         credentials: "include",
+    //         }
+    //     )
+    //     return response
+    // } else if (criteria.type == "search"){
+    //     const searchParams = new URLSearchParams();
+    //     const zipCodeArr = Object.entries(criteria.res);
+    //     for (let [key, value] of zipCodeArr) {
+    //         searchParams.append("zipCodes", value)
+    //     }
+    //     const response = fetch(
+    //         fetchURL +
+    //             "/dogs/search?sort=breed:" + order + "&" +
+    //             searchParams.toString(),
+    //         {
+    //             method: "GET",
+    //             credentials: "include",
+    //         }
+    //     )
+    //     return response
+    // }
+    if (breedCriteria == "" && Object.keys(searchCriteria) == 0) {
+        const response = fetch(fetchURL + "/dogs/search?sort=breed:"+order, {
             method: "GET",
             credentials: "include",
-            }
-        )
+        })
         return response
-    } else if (criteria.type == "search"){
-        const searchParams = new URLSearchParams();
-        const zipCodeArr = Object.entries(criteria.res);
-        for (let [key, value] of zipCodeArr) {
-            searchParams.append("zipCodes", value)
+    } else {
+
+        let filterFetchURL = fetchURL + "/dogs/search?sort=breed:" + order;
+        if (!(breedCriteria == "")) {
+            const breedParams = new URLSearchParams({
+                breeds: breedCriteria,
+            }).toString()
+            filterFetchURL += "&" + breedParams;
         }
+
+        if (!(Object.keys(searchCriteria).length == 0) && !searchCriteria.res.length == 0) {
+            const searchParams = new URLSearchParams();
+            const zipCodeArr = Object.entries(searchCriteria.res);
+            for (let [key, value] of zipCodeArr) {
+                searchParams.append("zipCodes", value)
+            }
+            filterFetchURL += "&" + searchParams.toString()
+        }
+
         const response = fetch(
-            fetchURL +
-                "/dogs/search?" +
-                searchParams.toString(),
+            filterFetchURL,
             {
                 method: "GET",
                 credentials: "include",

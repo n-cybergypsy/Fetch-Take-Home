@@ -1,8 +1,10 @@
 .App {
   font-family: sans-serif;
   text-align: center;
+  padding-bottom: 5%;
 }
 
 body {
-  background-color: rgb(160, 209, 223);
+  /* background-color: rgb(160, 209, 223); */
+  background-image: url("./Components/Assets/paw-print.jpg");
 }

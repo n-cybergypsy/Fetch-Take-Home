@@ -8,8 +8,8 @@ import { addToFavorites, getFavorites, removeFromFavorites } from "../../api";
 import { UserContext } from "../../Context/UserContext";
 
 const Tile = (props) => {
-  const { currUser} = useContext(UserContext);
-  const [favorited, setFavorited] = useState(props.favorited);
+  const { currUser, favoriteDogs} = useContext(UserContext);
+  const [favorited, setFavorited] = useState(favoriteDogs.includes(props.id));
   const [heartState, setHeartState] = useState(UnfilledHeart);
 
   const handleFavorite = async () => {
@@ -24,7 +24,7 @@ const Tile = (props) => {
 
   useEffect(() => {
     if (favorited) {setHeartState(FilledHeart)} else {setHeartState(UnfilledHeart)}
-  }, []);
+  }, [favorited]);
   return (
     <div className="tile-container">
       <div className="tile">

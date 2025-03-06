@@ -5,21 +5,15 @@ export const DisplayContext = createContext(null);
 const DisplayContextProvider = (props) => {
   const [dogIds, setDogIds] = useState([]);
   const [favoriteDogs, setFavoriteDogs] = useState(new Set());
-  const [filterBy, setFilterBy] = useState(null);
-  const [sortBy, setSortBy] = useState("ascending");
   const [breedFilter, setBreedFilter] = useState("");
   const [dogData, setDogData] = useState([]);
-  const [favoriteDogData, setFavoriteDogData] = useState([]);
+  const [totalResults, setTotalResults] = useState(0);
   const [nextPage, setNextPage] = useState(null);
-  const [prevPage, setPrevPage] = useState(null);
+  const [prevPages, setPrevPages] = useState([]);
 
   
 
   const contextValue = {
-    filterBy,
-    setFilterBy,
-    sortBy,
-    setSortBy,
     breedFilter,
     setBreedFilter,
     dogIds,
@@ -28,12 +22,12 @@ const DisplayContextProvider = (props) => {
     setFavoriteDogs,
     dogData,
     setDogData,
-    favoriteDogData,
-    setFavoriteDogData,
     nextPage,
     setNextPage,
-    prevPage,
-    setPrevPage,
+    prevPages,
+    setPrevPages,
+    totalResults,
+    setTotalResults,
   };
 
   return (

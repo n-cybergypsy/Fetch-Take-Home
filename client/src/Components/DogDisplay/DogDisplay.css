@@ -5,3 +5,22 @@
   gap: 1rem;
   width: 75%;
 }
+
+.change-page {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: row;
+  align-self: center;
+
+  button {
+    background: none;
+    border: none;
+    margin-top: 2rem;
+    cursor: pointer;
+    text-decoration: underline;
+    img {
+      height: 60%;
+    }
+  }
+}

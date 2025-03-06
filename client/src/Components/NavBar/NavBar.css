@@ -2,7 +2,6 @@
   width: 100%;
   height: 1rem;
   display: flex;
-  margin-bottom: 10%;
   position: relative;
   justify-content: flex-end;
   right: 1rem;
@@ -10,6 +9,7 @@
 
 .navigation a {
   color: black;
+  font-weight: bolder;
 }
 
 .navigation hr {

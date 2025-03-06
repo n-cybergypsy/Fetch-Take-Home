@@ -13,8 +13,6 @@ const NavBar = () => {
     setCurrUser(null)
     setFavoriteDogs(null)
     window.sessionStorage.removeItem("currUser");
-    // setTimeout(() => {
-    // });
   };
   return (
     <div className="navigation">

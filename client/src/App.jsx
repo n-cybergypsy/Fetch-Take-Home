@@ -41,9 +41,6 @@ export default function App() {
                   <Route path=":dogId" element={<Dog />} />
                 </Route>
               </Route>
-              <Route path="/logout" element={<PrivateRoute />}>
-                <Route path="/logout" element={<Login />} />
-              </Route>
             </Routes>
           </BrowserRouter>
       </DisplayContextProvider>

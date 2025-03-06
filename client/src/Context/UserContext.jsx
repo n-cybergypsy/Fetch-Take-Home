@@ -7,14 +7,6 @@ const UserContextProvider = (props) => {
   const [favoriteDogs, setFavoriteDogs] = useState(null);
 
   const contextValue = { currUser, setCurrUser, favoriteDogs, setFavoriteDogs };
-
-  // useEffect(()=> {
-  //   console.log("curruser", window.sessionStorage.getItem("currUser"))
-  //   if (window.sessionStorage.getItem("currUser")){
-  //     setCurrUser(
-  //       window.sessionStorage.getItem("currUser"));
-  //     }
-  // }, [])
   useEffect(()=> {
     window.sessionStorage.setItem("currUser", currUser);
     if (currUser){

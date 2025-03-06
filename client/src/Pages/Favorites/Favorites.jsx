@@ -2,18 +2,15 @@ import "./Favorites.css"
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
-import { DisplayContext } from "../../Context/DisplayContext";
 import DogDisplay from "../../Components/DogDisplay/DogDisplay";
-import { getDogsWithIds, getMatch } from "../../api";
+import { getDogsWithIds, getFavorites, getMatch } from "../../api";
 import Tile from "../../Components/Tile/Tile";
 
 
 const Favorites = () => {
-  const { favoriteDogs } = useContext(UserContext);
-  const { setDogIds } = useContext(DisplayContext);
+  const { favoriteDogs, setFavoriteDogs, currUser, setCurrUser } = useContext(UserContext);
   const [dogMatch, setDogMatch] = useState(null);
   const [matchData, setMatchData] = useState(null);
-  const fetchURL = "https://frontend-take-home-service.fetch.com";
   
   const doMatch = () => {
     getMatch(favoriteDogs)
@@ -23,13 +20,24 @@ const Favorites = () => {
   }
 
   useEffect(()=>{
+    if (dogMatch){
     getDogsWithIds(dogMatch).then((response) => {return response.text();})
     .then((data) => {setMatchData(JSON.parse(data)[0]);})
     .catch((error) => {console.error(error);});
+    }
   }, [dogMatch])
 
   useEffect(()=>{
-    setDogIds(favoriteDogs)
+    //Refresh favorite dogs
+    getFavorites(currUser)
+      .then((res)=>{
+        if (res.status == 401) {
+          setCurrUser(null)
+        }
+        return res.json()
+      })
+      .then((data)=> {setFavoriteDogs(data.map((e)=>e.dog_id))})
+      .catch((error)=>{console.error(error)})
   }, [])
   return (
     <div className="favorite-display-area">
@@ -53,7 +61,7 @@ const Favorites = () => {
       {favoriteDogs && 
       <div className="favorite-dog-display">
         <h1>Your Favorite Dogs:</h1>
-        <DogDisplay dogIds={favoriteDogs}/>
+        <DogDisplay page="favorites" dogIds={favoriteDogs}/>
       </div>
         }
       {!favoriteDogs && 

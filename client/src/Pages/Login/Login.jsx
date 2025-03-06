@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../provider/authProvider";
 import { createUser, getFavorites, getUserId, getUsers, loginUser } from "../../api";
 import { UserContext } from "../../Context/UserContext";
-import { all } from "axios";
+import Bone from "../../Components/Assets/bone.png"
 
 const Login = () => {
   const {setCurrUser, currUser, favoriteDogs, setFavoriteDogs} = useContext(UserContext);
@@ -24,7 +24,6 @@ const Login = () => {
   }
 
   useEffect(() => {
-    console.log("i fire 2 times")
     const formElement = document.querySelector(".login-form");
 
     formElement.addEventListener("submit", (event) => {
@@ -36,7 +35,10 @@ const Login = () => {
           throw new Error(res.status);
         }
         handleUser(formData)
-        navigate("/", {replace: true});
+        setTimeout(() => {
+          //Give some time for authentication to complete
+          navigate("/", {replace: true});
+        }, 3000);
       })
       .catch((error) => {
         console.error(error);
@@ -46,6 +48,7 @@ const Login = () => {
 
   return (
     <div className="login-page">
+      <h1>SHELTERED DOG DATABASE</h1>
       <form className="login-form">
         <input name="name" type="text" placeholder="Name" />
         <input name="email" type="email" placeholder="Email address" />
