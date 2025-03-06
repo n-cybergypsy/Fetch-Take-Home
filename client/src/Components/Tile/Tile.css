@@ -4,7 +4,7 @@
 }
 
 .tile-container {
-  border: 1px solid black;
+  border: 5px solid rgb(140, 83, 62);
   border-radius: 25px;
   background-color: snow;
 }
@@ -19,7 +19,12 @@
 
 .dog-details {
   width: 50%;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  p {
+    margin: 0;
+  }
 }
 
 .tile img {

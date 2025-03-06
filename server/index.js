@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const pool = require("./favoritesdb");
+const pool = require("./db.config");
 
 app.use(cors());
 app.use(express.json());
@@ -129,18 +129,7 @@ app.delete("/user/:id", async (req, res) => {
   }
 })
 
-// //remove favorite from usert
-// app.delete("/user/:id", async (req, res) => {
-//   //await
-//   try {
-//     const {id} = req.params;
-//     const deleteFavorite = await pool.query("DELETE FROM users WHERE user_id = $1", [id])
-//     res.json("User was removed.")
-//   } catch (error) {
-//     console.error(error.message);
-//   }
-// })
-
-app.listen(3001, () => {
-  console.log("server has started on port 3001");
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`server has started on port ${PORT}`);
 });

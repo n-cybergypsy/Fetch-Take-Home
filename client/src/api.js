@@ -1,5 +1,5 @@
 export async function getFavorites(userId){
-    const response = fetch(`http://localhost:3001/favorites/${userId}`, {
+    const response = fetch(`http://localhost:8080/favorites/${userId}`, {
     })
     return response;
 }
@@ -7,7 +7,7 @@ export async function getFavorites(userId){
 export async function addToFavorites(userId, dogId){
     try {
         const body = {"user_id": userId, "dog_id": dogId}
-        const response = await fetch("http://localhost:3001/favorites", {
+        const response = await fetch("http://localhost:8080/favorites", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(body)
@@ -20,7 +20,7 @@ export async function addToFavorites(userId, dogId){
 export async function removeFromFavorites(userId, dogId){
     try {
         const body = {"user_id": userId, "dog_id": dogId}
-        const response = await fetch("http://localhost:3001/favorites", {
+        const response = await fetch("http://localhost:8080/favorites", {
             method: "DELETE",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(body)
@@ -33,7 +33,7 @@ export async function removeFromFavorites(userId, dogId){
 export async function createUser(name, email){
     try {
         const body = {"user_name": name, "user_email": email}
-        const response = await fetch("http://localhost:3001/user", {
+        const response = await fetch("http://localhost:8080/user", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(body)
@@ -47,7 +47,7 @@ export async function createUser(name, email){
 //get user id
 export async function getUserId(email){
     try {
-        const response = await fetch(`http://localhost:3001/user/${email}`)
+        const response = await fetch(`http://localhost:8080/user/${email}`)
         const json = await response.json();
         return json
     } catch (error) {
@@ -58,7 +58,7 @@ export async function getUserId(email){
 //Get all users
 export async function getUsers(){
     try {
-        const response = await fetch("http://localhost:3001/users")
+        const response = await fetch("http://localhost:8080/users")
         return response.json();
     } catch (error) {
         console.error(error.message);
@@ -68,7 +68,7 @@ export async function getUsers(){
 // //Get all favorites from user
 // export async function getUserFaves(userId){
 //     try {
-//         const response = await fetch(`http://localhost:3001/favorites/${userId}`)
+//         const response = await fetch(`http://localhost:8080/favorites/${userId}`)
 //         return response;
 //     } catch (error) {
 //         console.error(error.message);
