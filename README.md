@@ -2,7 +2,7 @@
 
 This project was developed for the Fetch take home exercise I received for my application as a frontend engineer.
 
-Once you visit the site, you are prompted to authenticat (just enter your name and email address). From there you are directed to the home page where an array of shelter dogs are displayed. You can then add/remove dogs to/from your favorites by clicking on the heart icon of your desired dog tile.
+Once you visit the site, you are prompted to authenticate (just enter your name and email address). From there you are directed to the home page where an array of shelter dogs are displayed. You can then add/remove dogs to/from your favorites by clicking on the heart icon of your desired dog tile.
 
 
 
