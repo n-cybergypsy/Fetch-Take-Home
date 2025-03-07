@@ -21,10 +21,10 @@
     "vite": "^5.0.11"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "start": "npm run dev -- --port 3000"
+    "start": "npm run dev"
   },
   "browserslist": [
     ">0.2%",

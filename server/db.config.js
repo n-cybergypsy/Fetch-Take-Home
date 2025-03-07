@@ -1,7 +1,7 @@
 const Pool = require("pg").Pool;
 const url = require('url')
 const dotenv = require("dotenv")
-dotenv.config()
+dotenv.config({ path: "../.env" })
 
 
 if (process.env.DB_URL){
