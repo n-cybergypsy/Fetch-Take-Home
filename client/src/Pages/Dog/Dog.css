@@ -1,9 +1,11 @@
 .dog-page {
+  height: 100%;
   margin-top: 10%;
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
+  justify-content: center;
 }
 
 .dog-data-container {
@@ -12,12 +14,12 @@
   justify-content: center;
   background: white;
   padding: 2%;
-  border: 5px solid rgb(140, 83, 62);;
+  border: 5px solid rgb(140, 83, 62);
   border-radius: 50px;
-  height: 30%;
+  height: fit-content;
   width: 80%;
 }
 
 .dog-img-container img {
-  height: 20rem;
+  height: 20vw;
 }

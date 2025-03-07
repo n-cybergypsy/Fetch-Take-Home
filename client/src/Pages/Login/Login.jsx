@@ -56,11 +56,13 @@ const Login = () => {
   return (
     <div className="login-page">
       <h1>SHELTERED DOG DATABASE</h1>
-      <form className="login-form">
-        <input name="name" type="text" placeholder="Name" />
-        <input name="email" type="email" placeholder="Email address" />
-        <button type="submit">Log In</button>
-      </form>
+      <div className="login-form-container">
+        <form className="login-form">
+          <input name="name" type="text" placeholder="Name" />
+          <input name="email" type="email" placeholder="Email address" />
+          <button type="submit">Log In</button>
+        </form>
+      </div>
     </div>
   );
 };

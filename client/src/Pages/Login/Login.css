@@ -1,13 +1,20 @@
+.login-form-container {
+  background-image: url("/src/Components/Assets/bone.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+  height: fit-content;
+}
+
 .login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  height: 70%;
-  padding-bottom: 12%;
+  height: fit-content;
+  padding: 15vw;
 }
-
 
 .login-page {
   margin-top: 10%;
@@ -33,13 +40,13 @@
 .login-form button {
   cursor: pointer;
   width: 25%;
-  height: 2rem;
+  height: 3vw;
   border-radius: 20px;
 }
 
 .login-page {
-  background-image: url("../../Components/Assets/bone.png");
+  /* background-image: url("../../Components/Assets/bone.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 70%;
+  background-size: 70%; */
 }
