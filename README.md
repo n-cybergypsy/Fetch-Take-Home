@@ -19,7 +19,7 @@ Once you visit the site, you are prompted to authenticate (just enter your name 
 ### Installation:
 Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/n-cybergypsy/Fetch-Take-Home.git
    ```
 
 ### Backend
