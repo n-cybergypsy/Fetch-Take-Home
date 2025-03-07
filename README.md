@@ -38,3 +38,10 @@ $ npm start
 
 You can then open "http://localhost:5173/" in your browser (preferably Chrome) and access the site!
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## Future Improvements
+- Make the site more accessible and responsive
+- Add unit and end to end testing to ensure bugs are caught and for quality assurance
+
+
