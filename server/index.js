@@ -99,17 +99,6 @@ app.get("/users", async (req, res) =>{
   }
 })
 
-// //get all favorites from user
-// app.get("/user/:id", async (req, res) =>{
-//   try {
-//     const {id} = req.params;
-//     const allUserFavorites = await pool.query("SELECT * FROM favorites WHERE user_id = $1", [id]);
-//     res.json(allUserFavorites.rows);
-//   } catch (error) {
-//     console.error(error.message);
-//   }
-// })
-
 //remove user
 app.delete("/user/:id", async (req, res) => {
   //await

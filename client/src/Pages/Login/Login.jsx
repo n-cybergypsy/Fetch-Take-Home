@@ -27,7 +27,6 @@ const Login = () => {
     }
     const userId = (await getUserId(user_email)).user_id;
     setCurrUser(userId);
-    // setFavoriteDogs((await getFavorites(userId)).map((e)=>e.dog_id))
   };
 
   useEffect(() => {

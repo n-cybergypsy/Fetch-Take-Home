@@ -65,16 +65,6 @@ export async function getUsers(){
     }
 }
 
-// //Get all favorites from user
-// export async function getUserFaves(userId){
-//     try {
-//         const response = await fetch(`https://fetch-fake-home.onrender.com/favorites/${userId}`)
-//         return response;
-//     } catch (error) {
-//         console.error(error.message);
-//     }
-// }
-
 const fetchURL = "https://frontend-take-home-service.fetch.com";
 
 export async function loginUser(userData){
@@ -117,18 +107,6 @@ export async function getBreedList(dogIds) {
         credentials: "include",
     })
     return response
-    // .then((response) => {
-    //   if (!response.ok) {
-    //     throw new Error(response.status);
-    //   }
-    //   return response.json();
-    // })
-    // .then((data) => {
-    //   setDogBreeds(data);
-    // })
-    // .catch((error) => {
-    //   console.error(error);
-    // });
 }
 
 
@@ -155,36 +133,6 @@ export async function getAllDogIds(order){
 
 //Gets Ids of dogs that fit filter criteria
 export async function getDogIdsByCriteria(breedCriteria, searchCriteria, order){
-    // if (criteria.type == "breeds") {
-    //     const response = fetch(
-    //         fetchURL +
-    //         "/dogs/search?" +
-    //         new URLSearchParams({
-    //             breeds: criteria.res,
-    //         }).toString(),
-    //         {
-    //         method: "GET",
-    //         credentials: "include",
-    //         }
-    //     )
-    //     return response
-    // } else if (criteria.type == "search"){
-    //     const searchParams = new URLSearchParams();
-    //     const zipCodeArr = Object.entries(criteria.res);
-    //     for (let [key, value] of zipCodeArr) {
-    //         searchParams.append("zipCodes", value)
-    //     }
-    //     const response = fetch(
-    //         fetchURL +
-    //             "/dogs/search?sort=breed:" + order + "&" +
-    //             searchParams.toString(),
-    //         {
-    //             method: "GET",
-    //             credentials: "include",
-    //         }
-    //     )
-    //     return response
-    // }
     if (breedCriteria == "" && Object.keys(searchCriteria) == 0) {
         const response = fetch(fetchURL + "/dogs/search?sort=breed:"+order, {
             method: "GET",
